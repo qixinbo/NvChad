@@ -14,10 +14,22 @@ M.plugins = {
             require "custom.plugins.lspconfig"
           end,
       },
+
+      -- DAP config
+      ["theHamsta/nvim-dap-virtual-text"] = {},
+      ["rcarriga/nvim-dap-ui"] = {},
+      ["mfussenegger/nvim-dap-python"] = {},
+      ["mfussenegger/nvim-dap"] = {
+          config = function()
+            require("custom.plugins.dap").setup()
+          end
+      },
    },
 }
 
 -- now run :PackerSync
+
+M.mappings = require "custom.mappings"
 
 -- example of changing theme:
 M.ui = {
