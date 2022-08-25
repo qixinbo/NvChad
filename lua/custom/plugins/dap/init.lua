@@ -5,7 +5,7 @@ local function configure()
 
   local dap_breakpoint = {
     error = {
-      text = "ﭦ",
+      text = "🛑",
       texthl = "LspDiagnosticsSignError",
       linehl = "",
       numhl = "",
