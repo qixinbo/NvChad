@@ -34,6 +34,7 @@ local options = {
 treesitter.setup(options)
 
 -- 开启 Folding 模块
+-- zc是折叠，zo是展开折叠
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 -- 默认不要折叠
