@@ -8,6 +8,14 @@ M.plugins = {
       ["goolord/alpha-nvim"] = {
          disable = false,
       },
+
+      ["nvim-treesitter/nvim-treesitter"] = {
+          config = function()
+            require "custom.plugins.treesitterconfig"
+          end,
+      },
+
+
       ["neovim/nvim-lspconfig"] = {
           config = function()
             require "plugins.configs.lspconfig"
