@@ -5,17 +5,17 @@ local M = {}
 -- make sure you maintain the structure of `core/default_config.lua` here,
 M.plugins = {
    user = {
+      -- alpha dashboard
       ["goolord/alpha-nvim"] = {
          disable = false,
       },
-
+      -- treesitter
       ["nvim-treesitter/nvim-treesitter"] = {
           config = function()
             require "custom.plugins.treesitterconfig"
           end,
       },
-
-
+      -- lsp
       ["neovim/nvim-lspconfig"] = {
           config = function()
             require "plugins.configs.lspconfig"
