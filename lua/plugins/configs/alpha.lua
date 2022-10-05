@@ -27,7 +27,7 @@ local function button(sc, txt, keybind)
     type = "button",
     val = txt,
     on_press = function()
-      local key = vim.api.nvim_replace_termcodes(sc_, true, false, true)
+      local key = vim.api.nvim_replace_termcodes(sc_, true, false, true) or ""
       vim.api.nvim_feedkeys(key, "normal", false)
     end,
     opts = opts,
@@ -92,3 +92,19 @@ alpha.setup {
   },
   opts = {},
 }
+
+-- Disable statusline in dashboard
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "alpha",
+  callback = function()
+    -- store current statusline value and use that
+    local old_laststatus = vim.opt.laststatus
+    vim.api.nvim_create_autocmd("BufUnload", {
+      buffer = 0,
+      callback = function()
+        vim.opt.laststatus = old_laststatus
+      end,
+    })
+    vim.opt.laststatus = 0
+  end,
+})
